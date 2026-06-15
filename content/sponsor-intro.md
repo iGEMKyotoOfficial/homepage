@@ -4,6 +4,26 @@ subtitle: Our Sponsors
 ---
 
 # サポーターの皆様
+
+## 2026年度 ご支援者の皆様
+
+2026年度は、クラウドファンディングサイト「CAMPFIRE」にて 2026年2月9日〜3月23日の期間でご支援を募り、17名の皆様から計 **415,000円** のご支援をいただきました。心より御礼申し上げます。  
+[クラウドファンディングのプロジェクトページはこちら](https://camp-fire.jp/projects/913288/view)
+
+<div style="display:flex; flex-wrap:wrap; align-items:flex-end; gap:1.5rem 2rem; margin:1.5rem 0;">
+  <!-- TODO: 嶋田さんのロゴ(Ante) shimada.png を入手したらロゴ付きカードに差し替える -->
+  <span style="font-size:20pt;">嶋田和子 様</span>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem;">
+    <img src="../public/images/sponsors/miyakocapital.png" alt="みやこキャピタル" style="height:64px; width:auto; object-fit:contain;" />
+    <span style="font-size:20pt;">みやこキャピタル 様</span>
+  </div>
+  <span style="font-size:20pt;">馬場啓至 様</span>
+  <span style="font-size:20pt;">馬場博子 様</span>
+</div>
+
+<span style="font-size:11pt;">藤森陽生 様</span>
+
+## 2025年度 ご支援者の皆様
 2025年度、ご支援いただいた方々を紹介します。
 
 
