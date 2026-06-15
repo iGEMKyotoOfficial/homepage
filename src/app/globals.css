@@ -10,8 +10,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,7 +42,9 @@ body {
 .home-page h1,
 .home-page h2,
 .home-page h3 {
-  font-family: var(--font-serif-jp), "Noto Serif JP", serif;
+  /* Web フォントが日本語グリフをカバーしない場合でも、OS 標準の明朝体にフォールバックさせる */
+  font-family: var(--font-serif-jp), "Noto Serif JP", "Hiragino Mincho ProN",
+    "Yu Mincho", "YuMincho", "Noto Serif CJK JP", serif;
 }
 
 /* First View Animations */
@@ -78,4 +78,16 @@ body {
 
 .fv-scroll {
   animation: fv-fade 1s ease 1.5s both;
+}
+
+/* モーション過敏なユーザー向けに演出を無効化し、最初から最終状態で表示する */
+@media (prefers-reduced-motion: reduce) {
+  .fv-title,
+  .fv-subtitle,
+  .fv-scroll {
+    animation: none;
+  }
+  .fv-scroll .animate-bounce {
+    animation: none;
+  }
 }

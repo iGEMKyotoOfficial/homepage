@@ -2,6 +2,12 @@ import { Building2 } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import MarkdownContent from "@/components/MarkdownContent";
 
+export const metadata = {
+  title: "団体概要",
+  description:
+    "iGEM Kyoto の概要、合成生物学や iGEM 大会についてご紹介します。",
+};
+
 export default async function AboutPage() {
   const { title, subtitle, contentHtml } = await getMarkdownContent("about");
 

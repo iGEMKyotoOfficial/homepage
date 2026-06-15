@@ -3,9 +3,8 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import FirstView from "@/components/FirstView";
-import { motion } from "framer-motion";
-
-const basePath = "/homepage";
+import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import { basePath } from "@/lib/site";
 
 // === アニメーション用のテキストデータ ===
 // 太字にする部分とそうでない部分を分けて定義します。
@@ -66,9 +65,28 @@ type TextSegment = {
 // === タイピングアニメーション用コンポーネント ===
 // { segments } の後ろに型を指定します
 const TypewriterText = ({ segments }: { segments: TextSegment[] }) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  // モーション過敏なユーザーには演出を行わず、最初から全文を表示する
+  if (shouldReduceMotion) {
+    return (
+      <p className="text-base leading-loose text-gray-700 dark:text-gray-300">
+        {segments.map((seg, index) =>
+          seg.bold ? (
+            <strong key={index} className="font-bold">
+              {seg.text}
+            </strong>
+          ) : (
+            <span key={index}>{seg.text}</span>
+          )
+        )}
+      </p>
+    );
+  }
+
   // chars 配列にも型を指定します
   const chars: { char: string; bold?: boolean }[] = [];
-  
+
   segments.forEach((seg) => {
     // 絵文字なども崩れないように Array.from を使用
     const segChars = Array.from(seg.text);
@@ -123,7 +141,9 @@ const getLinkDelay = (segments: TextSegment[]) => {
 
 
 export default function HomePage() {
+  const shouldReduceMotion = useReducedMotion();
   return (
+    <MotionConfig reducedMotion="user">
     <div className="home-page min-h-screen overflow-hidden">
       {/* First View */}
       <FirstView />
@@ -187,7 +207,7 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: getLinkDelay(textData.igemKyoto) }}
+                transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : getLinkDelay(textData.igemKyoto) }}
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <Link
@@ -218,7 +238,7 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: getLinkDelay(textData.mission) }}
+                transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : getLinkDelay(textData.mission) }}
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <Link
@@ -322,7 +342,7 @@ export default function HomePage() {
                 className="flex flex-wrap gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: getLinkDelay(textData.achievement) }}
+                transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : getLinkDelay(textData.achievement) }}
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <Link
@@ -360,7 +380,7 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: getLinkDelay(textData.supportUs) }}
+                transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : getLinkDelay(textData.supportUs) }}
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <Link
@@ -463,7 +483,7 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: getLinkDelay(textData.joinUs) }}
+                transition={{ duration: 0.6, delay: shouldReduceMotion ? 0 : getLinkDelay(textData.joinUs) }}
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <Link
@@ -479,5 +499,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </MotionConfig>
   );
 }

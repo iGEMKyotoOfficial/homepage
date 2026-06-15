@@ -2,6 +2,11 @@ import { Mail } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import MarkdownContent from "@/components/MarkdownContent";
 
+export const metadata = {
+  title: "CONTACT",
+  description: "iGEM Kyoto へのお問い合わせ先のご案内です。",
+};
+
 export default async function ContactPage() {
   const { title, subtitle, contentHtml } = await getMarkdownContent("contact");
 

@@ -1,8 +1,7 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-
-const basePath = "/homepage";
+import { basePath } from "@/lib/site";
 
 export default function FirstView() {
   const scrollToContent = () => {

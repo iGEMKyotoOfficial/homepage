@@ -2,6 +2,11 @@ import { Newspaper } from "lucide-react";
 import { getMarkdownContent } from "@/lib/markdown";
 import MarkdownContent from "@/components/MarkdownContent";
 
+export const metadata = {
+  title: "NEWS",
+  description: "iGEM Kyoto の最新の活動情報をお届けします。",
+};
+
 export default async function NewsPage() {
   const { title, subtitle, contentHtml } = await getMarkdownContent("news");
 

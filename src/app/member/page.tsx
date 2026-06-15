@@ -1,8 +1,12 @@
 import { Users } from "lucide-react";
 import { members } from "@/data/members";
 import MemberCard from "@/components/MemberCard";
+import { basePath } from "@/lib/site";
 
-const basePath = "/homepage";
+export const metadata = {
+  title: "MEMBER",
+  description: "iGEM Kyoto のメンバー紹介です。",
+};
 
 export default function MemberPage() {
   return (

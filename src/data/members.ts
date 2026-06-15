@@ -25,7 +25,7 @@ export const members: Member[] = [
   {
     id: "shiogai",
     name: "塩貝真礼",
-    nameEn: "Shiogai",
+    nameEn: "Mahiro Shiogai",
     image: "/images/members/shiogai.jpg",
     grade: "2回生",
     faculty: "工学部理工化学科",

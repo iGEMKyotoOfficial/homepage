@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { basePath } from "@/lib/site";
 
 const navItems = [
   { href: "/", label: "HOME" },
@@ -18,8 +19,6 @@ const navItems = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-
-  const basePath = "/homepage";
 
   return (
     <header className="fixed top-4 right-4 left-4 z-50 flex items-start justify-between">
