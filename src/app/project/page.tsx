@@ -176,7 +176,7 @@ export default function ProjectPage() {
               alt="研究室での実験作業"
               width={400}
               height={300}
-              className="w-full rounded-lg object-cover sm:w-1/2"
+              className="w-full rounded-lg object-cover sm:w-1/2 mt-0" 
             />
             <div className="sm:w-1/2">
               <p className="mt-0 text-gray-600 dark:text-gray-400">
@@ -233,7 +233,7 @@ export default function ProjectPage() {
               <p className="mt-0 text-gray-600 dark:text-gray-400">
                 <strong>Dryとは、バイオ研究においてコンピュータ上で理論設計や解析を行う分野</strong>を指します。
                 実験台の上で試薬を扱うWetに対して、Dryでは数式・アルゴリズム・シミュレーションを用いて、生命現象や分子のふるまいを理論的に解析・予測します。
-                まさにWetとDryは、生命科学の研究において互いに補完し合う両輪です。
+                まさにWetとDryは、生命科学の研究において互いに補完し合う両輪です
               </p>
               <p className="text-gray-600 dark:text-gray-400">
                 具体的には、個体間感染シミュレーション、バイオセンサーの発現量予測、タンパク質構造の最適化など、プロジェクトに応じて多様なアプローチを行っています。
